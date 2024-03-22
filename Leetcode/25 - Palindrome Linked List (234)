@@ -1,0 +1,40 @@
+234. Palindrome Linked List
+    Difficulty Level --> Easy
+
+PROBLEM DESCRIPTION: 
+    Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+    
+EXAMPLE 1:
+Input: head = [1,2,2,1]
+Output: true
+
+EXAMPLE 2:
+Input: head = [1,2]
+Output: false
+ 
+CONSTRAINTS:
+The number of nodes in the list is in the range [1, 105].
+0 <= Node.val <= 9
+
+SOLUTION:
+</CODE USING JAVA>
+
+// Actual Code starts from the next line
+
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        List<Integer> list = new ArrayList();
+        while(head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+        
+        int left = 0;
+        int right = list.size()-1;
+        while(left < right && list.get(left) == list.get(right)) {
+            left++;
+            right--;
+        }
+        return left >= right;
+    }
+}
